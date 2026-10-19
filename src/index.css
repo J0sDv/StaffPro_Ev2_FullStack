@@ -1,0 +1,69 @@
+:root {
+  --sp-dark: #1e2a3a;
+  --sp-dark-2: #16202c;
+  --sp-accent: #ff8a1e;
+  --sp-accent-dark: #e07000;
+  --sp-bg: #f5f7fa;
+  --sp-text-muted: #4a5a6e;
+  --sp-error: #d92d20;
+}
+ 
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  background-color: var(--sp-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--sp-dark);
+}
+ 
+/* NAVBAR */ 
+.navbar-staffpro {
+  background-color: var(--sp-dark);
+  font-size: 1.05rem;
+}
+ 
+.text-accent {
+  color: var(--sp-accent);
+}
+ 
+.btn-accent {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+  font-weight: 600;
+}
+ 
+.btn-accent:hover,
+.btn-accent:focus,
+.btn-accent:active {
+  background-color: var(--sp-accent-dark) !important;
+  border-color: var(--sp-accent-dark) !important;
+  color: #fff !important;
+}
+ 
+.btn-accent:disabled {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+  opacity: 0.55;
+}
+ 
+/* HERO */
+.hero-section {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+}
+ 
+/* FOOTER */
+.footer-staffpro {
+  background-color: var(--sp-dark);
+}
+ 
+/* RESPONSIVO */
+@media (max-width: 576px) {
+  .btn-lg {
+    font-size: 1rem;
+  }
+}
+
