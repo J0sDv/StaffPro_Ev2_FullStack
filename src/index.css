@@ -18,7 +18,7 @@ body {
   color: var(--sp-dark);
 }
  
-/* NAVBAR */ 
+/* NAVBAR */
 .navbar-staffpro {
   background-color: var(--sp-dark);
   font-size: 1.05rem;
@@ -50,12 +50,94 @@ body {
   opacity: 0.55;
 }
  
-/* HERO */
+/* HERO */ 
 .hero-section {
   background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
 }
  
-/* FOOTER */
+.hero-img {
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  width: 90%;
+  max-height: 350px;
+  object-fit: cover;
+}
+ 
+/* ESTADISTICAS */
+.stat-card {
+  background-color: #ebebee;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+ 
+.panel-icono {
+  font-size: 1.8rem;
+  color: var(--sp-accent);
+}
+ 
+/* PASOS */
+.paso-numero {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--sp-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+ 
+.paso-icono {
+  font-size: 2.2rem;
+  color: var(--sp-accent);
+  display: block;
+}
+ 
+/* BENEFICIOS */
+.beneficios-section {
+  background-color: var(--sp-bg);
+}
+ 
+.benefit-card {
+  border: none;
+  border-top: 5px solid var(--sp-accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.12) !important;
+}
+ 
+.benefit-icono {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(255, 138, 30, 0.12);
+  color: var(--sp-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+ 
+/* TESTIMONIOS */
+.testimonio-card {
+  border-top: 3px solid var(--sp-accent);
+}
+ 
+.testimonio-icono {
+  font-size: 1.8rem;
+  color: var(--sp-accent);
+  opacity: 0.6;
+}
+ 
+/* CTA FINAL */
+.cta-final {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+}
+ 
+/* FOOTER */ 
 .footer-staffpro {
   background-color: var(--sp-dark);
 }
@@ -66,4 +148,5 @@ body {
     font-size: 1rem;
   }
 }
+
 
