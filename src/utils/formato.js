@@ -12,6 +12,8 @@ export function fechaHoy() {
   return `${d.getFullYear()}-${mes}-${dia}`;
 }
  
+export const horaAhora = () => new Date().toTimeString().slice(0, 5);
+ 
 export function formatearFecha(iso) {
   if (!iso) return '';
   const [a, m, d] = iso.split('-');

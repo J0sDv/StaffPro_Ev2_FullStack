@@ -16,10 +16,15 @@ import Dashboard from './pages/Dashboard';
 import SolicitudesCliente from './pages/SolicitudesCliente';
 import GestionPersonal from './pages/GestionPersonal';
  
+// Trabajador, Reclutador y Administrador
+import Asistencia from './pages/Asistencia';
+import Trabajadores from './pages/Trabajadores';
+import Usuarios from './pages/Usuarios';
+ 
 // Atajo: envuelve un elemento con la proteccion por roles
 const protegida = (elemento, roles) => <RutaProtegida roles={roles}>{elemento}</RutaProtegida>;
  
-const { CLIENTE, COORDINADOR } = ROLES;
+const { ADMIN, COORDINADOR, RECLUTADOR, CLIENTE, TRABAJADOR } = ROLES;
  
 export default function App() {
   return (
@@ -39,6 +44,13 @@ export default function App() {
  
         {/* === COORDINADOR === */}
         <Route path="gestion" element={protegida(<GestionPersonal />, [COORDINADOR])} />
+ 
+        {/* === TRABAJADOR === */}
+        <Route path="asistencia" element={protegida(<Asistencia />, [TRABAJADOR])} />
+ 
+        {/* === RECLUTADOR Y ADMINISTRADOR === */}
+        <Route path="trabajadores" element={protegida(<Trabajadores />, [RECLUTADOR, ADMIN])} />
+        <Route path="usuarios" element={protegida(<Usuarios />, [ADMIN])} />
  
         <Route path="*" element={<NoEncontrado />} />
       </Route>

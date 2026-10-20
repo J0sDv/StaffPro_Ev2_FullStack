@@ -18,7 +18,7 @@ body {
   color: var(--sp-dark);
 }
  
-/* NAVBAR */
+/* NAVBAR */ 
 .navbar-staffpro {
   background-color: var(--sp-dark);
   font-size: 1.05rem;
@@ -74,7 +74,7 @@ body {
   color: var(--sp-accent);
 }
  
-/* PASOS */
+/* PASOS */ 
 .paso-numero {
   width: 42px;
   height: 42px;
@@ -93,7 +93,7 @@ body {
   display: block;
 }
  
-/* BENEFICIOS */
+/* BENEFICIOS */ 
 .beneficios-section {
   background-color: var(--sp-bg);
 }
@@ -168,7 +168,7 @@ body {
   font-weight: 500;
 }
  
-/* ACCESO (login / registro) */
+/* ACCESO (login / registro) */ 
 .pagina-sesion {
   background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
   min-height: 100vh;
@@ -228,6 +228,38 @@ body {
   color: #fff;
 }
  
+/* BOTONES Y MARCAJES (asistencia movil) */
+.btn-outline-accent {
+  border: 1px solid var(--sp-accent);
+  color: var(--sp-accent);
+  font-weight: 600;
+}
+ 
+.btn-outline-accent:hover {
+  background-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.btn-check:checked + .btn-outline-accent {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.marcaje-item {
+  background-color: #fff;
+  border-left: 4px solid var(--sp-accent);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  font-size: 0.9rem;
+}
+ 
+.marcaje-item.salida {
+  border-left-color: var(--sp-dark);
+}
+ 
 /* RESPONSIVO */ 
 @media (max-width: 576px) {
   .page-header h1 {
@@ -242,6 +274,7 @@ body {
     font-size: 1rem;
   }
 }
+
 
 
 

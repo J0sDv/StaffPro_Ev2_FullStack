@@ -14,14 +14,24 @@ export const MENUS = {
     INICIO, PANEL,
     { to: '/solicitud', label: 'Solicitar Personal', icono: 'bi-file-earmark-plus', descripcion: 'Pide personal y revisa el estado de tus solicitudes.' },
   ],
-  [ROLES.RECLUTADOR]: [INICIO, PANEL],
+  [ROLES.RECLUTADOR]: [
+    INICIO, PANEL,
+    { to: '/trabajadores', label: 'Trabajadores', icono: 'bi-person-vcard', descripcion: 'Registra, edita y elimina trabajadores externos.' },
+  ],
   [ROLES.COORDINADOR]: [
     INICIO, PANEL,
     { to: '/gestion', label: 'Gestion de Personal', icono: 'bi-diagram-3', descripcion: 'Actualiza solicitudes y asigna trabajadores a clientes.' },
   ],
-  [ROLES.TRABAJADOR]: [INICIO, PANEL],
-  // El reporte de horas y costos se muestra dentro del Panel
+  [ROLES.TRABAJADOR]: [
+    INICIO, PANEL,
+    { to: '/asistencia', label: 'Marcar Asistencia', icono: 'bi-phone', descripcion: 'Registra tu entrada o salida desde el celular.' },
+  ],
   [ROLES.RRHH]: [INICIO, PANEL],
-  [ROLES.ADMIN]: [INICIO, PANEL],
+  [ROLES.ADMIN]: [
+    INICIO, PANEL,
+    { to: '/usuarios', label: 'Usuarios', icono: 'bi-person-gear', descripcion: 'Crea, edita y elimina cuentas y roles.' },
+    { to: '/trabajadores', label: 'Trabajadores', icono: 'bi-person-vcard', descripcion: 'Administra el catalogo de trabajadores.' },
+  ],
 };
+
 

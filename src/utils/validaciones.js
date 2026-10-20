@@ -45,7 +45,7 @@ export function telefonoValido(telefono) {
 const vacio = (v) => String(v ?? '').trim() === '';
 const corto = (v, min) => String(v ?? '').trim().length < min;
  
-// Cada validador devuelve un objeto, si el objeto esta vacio el formulario es valido
+// Cada validador devuelve un objeto si el objeto esta vacio, el formulario es valido
  
 export function validarLogin({ correo, rut, password }) {
   const e = {};
@@ -88,3 +88,39 @@ export function validarSolicitud(d, hoy) {
   if (String(d.comentarios ?? '').length > 500) e.comentarios = 'Maximo 500 caracteres.';
   return e;
 }
+ 
+export function validarMarcaje({ rut, fecha, hora }) {
+  const e = {};
+  if (!validarRut(rut)) e.rut = 'Ingresa un RUT valido, con guion y digito verificador (Ej: 11.111.111-1).';
+  if (vacio(fecha)) e.fecha = 'Selecciona la fecha del marcaje.';
+  if (vacio(hora)) e.hora = 'Ingresa la hora del marcaje.';
+  return e;
+}
+ 
+// rutsExistentes: RUTs de OTROS trabajadores (para detectar duplicados)
+export function validarTrabajador(d, rutsExistentes = []) {
+  const e = {};
+  if (corto(d.nombre, 3)) e.nombre = 'Ingresa el nombre (minimo 3 caracteres).';
+  if (!validarRut(d.rut)) e.rut = 'Ingresa un RUT valido, con guion y digito verificador.';
+  else if (rutsExistentes.map(limpiarRut).includes(limpiarRut(d.rut))) e.rut = 'Ya existe un trabajador con este RUT.';
+  if (vacio(d.especialidad)) e.especialidad = 'Selecciona una especialidad.';
+  const valor = Number(d.valorHora);
+  if (!Number.isFinite(valor) || valor < 1000) e.valorHora = 'Ingresa un valor hora valido (minimo $1.000).';
+  if (vacio(d.estado)) e.estado = 'Selecciona el estado.';
+  return e;
+}
+ 
+// otros: lista de OTROS usuarios (para detectar RUT o correo duplicados)
+export function validarUsuario(d, otros = []) {
+  const e = {};
+  if (corto(d.nombre, 3)) e.nombre = 'Ingresa el nombre (minimo 3 caracteres).';
+  if (!validarRut(d.rut)) e.rut = 'Ingresa un RUT valido, con guion y digito verificador.';
+  else if (otros.some((u) => limpiarRut(u.rut) === limpiarRut(d.rut))) e.rut = 'Ya existe un usuario con este RUT.';
+  if (!correoValido(d.correo) || !dominioValido(d.correo)) e.correo = 'Ingresa un correo @duoc.cl o @gmail.com.';
+  else if (otros.some((u) => u.correo.toLowerCase() === d.correo.trim().toLowerCase())) e.correo = 'Ya existe un usuario con este correo.';
+  if (!telefonoValido(d.telefono)) e.telefono = 'Ingresa un telefono valido (solo numeros, espacios y +).';
+  if (vacio(d.rol)) e.rol = 'Selecciona un rol.';
+  if (!passwordValida(d.password)) e.password = 'La contraseña debe tener entre 6 y 10 caracteres.';
+  return e;
+}
+
