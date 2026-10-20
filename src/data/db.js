@@ -19,9 +19,34 @@ export const SEED = {
     { id: 5, nombre: 'Camila Reyes', rut: '17.654.321-3', correo: 'camila.reyes@gmail.com', telefono: '+56 9 5555 5555', password: 'cliente12', rol: ROLES.CLIENTE, empresa: 'Construccion SA' },
     { id: 6, nombre: 'Juan Perez', rut: '11.111.111-1', correo: 'juan.perez@gmail.com', telefono: '+56 9 6666 6666', password: 'trabajo12', rol: ROLES.TRABAJADOR, empresa: '' },
   ],
+  trabajadores: [
+    { id: 1, rut: '11.111.111-1', nombre: 'Juan Perez', especialidad: 'Operador de grua', valorHora: 12000, cliente: 'Construccion SA', estado: 'En turno' },
+    { id: 2, rut: '22.222.222-2', nombre: 'Maria Gonzalez', especialidad: 'Bodeguero/a', valorHora: 8500, cliente: 'Retail Center', estado: 'En turno' },
+    { id: 3, rut: '33.333.333-3', nombre: 'Carlos Silva', especialidad: 'Electricista', valorHora: 14000, cliente: 'Sin asignar', estado: 'Disponible' },
+    { id: 4, rut: '44.444.444-4', nombre: 'Ana Rojas', especialidad: 'Ayudante de produccion', valorHora: 6500, cliente: 'Industrial Sur', estado: 'En turno' },
+    { id: 5, rut: '55.555.555-5', nombre: 'Luis Muñoz', especialidad: 'Conductor', valorHora: 11000, cliente: 'Sin asignar', estado: 'Disponible' },
+    { id: 6, rut: '66.666.666-6', nombre: 'Pedro Soto', especialidad: 'Operador de grua', valorHora: 12500, cliente: 'Sin asignar', estado: 'Disponible' },
+    { id: 7, rut: '77.777.777-7', nombre: 'Daniela Vega', especialidad: 'Bodeguero/a', valorHora: 8800, cliente: 'Sin asignar', estado: 'Disponible' },
+    { id: 8, rut: '88.888.888-8', nombre: 'Marcelo Diaz', especialidad: 'Electricista', valorHora: 13500, cliente: 'Construccion SA', estado: 'En turno' },
+  ],
+  solicitudes: [
+    { id: 1, usuarioId: 5, empresa: 'Construccion SA', contacto: 'Camila Reyes', correo: 'camila.reyes@gmail.com', telefono: '+56 9 5555 5555', tipoContrato: 'CT002', especialidad: 'Operador de grua', cantidad: 1, fechaInicio: '2026-10-01', fechaTermino: '2026-12-15', comentarios: 'Faena en Santiago Centro.', estado: 'En servicio', fechaCreacion: '2026-09-20' },
+    { id: 2, usuarioId: 5, empresa: 'Construccion SA', contacto: 'Camila Reyes', correo: 'camila.reyes@gmail.com', telefono: '+56 9 5555 5555', tipoContrato: 'CT001', especialidad: 'Electricista', cantidad: 1, fechaInicio: '2026-10-05', fechaTermino: '2026-11-30', comentarios: '', estado: 'En servicio', fechaCreacion: '2026-09-25' },
+    { id: 3, usuarioId: 5, empresa: 'Construccion SA', contacto: 'Camila Reyes', correo: 'camila.reyes@gmail.com', telefono: '+56 9 5555 5555', tipoContrato: 'CT001', especialidad: 'Conductor', cantidad: 2, fechaInicio: '2026-11-02', fechaTermino: '2026-12-20', comentarios: 'Turno de mañana.', estado: 'Solicitado', fechaCreacion: '2026-10-15' },
+  ],
+  asistencias: [
+    { id: 1, rut: '11.111.111-1', fecha: '2026-10-14', hora: '08:00', tipo: 'Entrada' },
+    { id: 2, rut: '11.111.111-1', fecha: '2026-10-14', hora: '17:00', tipo: 'Salida' },
+    { id: 3, rut: '11.111.111-1', fecha: '2026-10-15', hora: '08:05', tipo: 'Entrada' },
+    { id: 4, rut: '11.111.111-1', fecha: '2026-10-15', hora: '17:10', tipo: 'Salida' },
+    { id: 5, rut: '22.222.222-2', fecha: '2026-10-15', hora: '09:00', tipo: 'Entrada' },
+    { id: 6, rut: '22.222.222-2', fecha: '2026-10-15', hora: '18:00', tipo: 'Salida' },
+    { id: 7, rut: '44.444.444-4', fecha: '2026-10-15', hora: '07:55', tipo: 'Entrada' },
+    { id: 8, rut: '44.444.444-4', fecha: '2026-10-15', hora: '16:30', tipo: 'Salida' },
+  ],
 };
  
-// Base de datos simulada y CRUD
+// Base de datos simulada y CRUD 
 const copiaInicial = () => JSON.parse(JSON.stringify(SEED));
  
 let db = copiaInicial();
@@ -67,7 +92,7 @@ export function eliminar(coleccion, id) {
   return true;
 }
  
-// Vuelve a los datos iniciales
+// Vuelve a los datos iniciales (util para pruebas)
 export function reiniciarDatos() {
   db = copiaInicial();
 }
