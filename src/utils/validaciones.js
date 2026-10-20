@@ -1,4 +1,4 @@
-// Funciones de validacion
+// Funciones puras de validacion
  
 export function limpiarRut(rut) {
   return String(rut ?? '').replace(/\./g, '').replace(/-/g, '').trim().toUpperCase();
@@ -42,10 +42,10 @@ export function telefonoValido(telefono) {
   return /^[+0-9 ]{8,15}$/.test(String(telefono ?? '').trim());
 }
  
+const vacio = (v) => String(v ?? '').trim() === '';
 const corto = (v, min) => String(v ?? '').trim().length < min;
  
-/* Cada validador devuelve un objeto { campo: 'mensaje' }.
-Si el objeto esta vacio, el formulario es valido. */
+// Cada validador devuelve un objeto, si el objeto esta vacio el formulario es valido
  
 export function validarLogin({ correo, rut, password }) {
   const e = {};
@@ -64,5 +64,27 @@ export function validarRegistro({ nombre, empresa, rut, correo, telefono, passwo
   if (!telefonoValido(telefono)) e.telefono = 'Ingresa un telefono valido (solo numeros, espacios y +).';
   if (!passwordValida(password)) e.password = 'La contraseña debe tener entre 6 y 10 caracteres.';
   if (confirmar !== password) e.confirmar = 'Las contraseñas no coinciden.';
+  return e;
+}
+ 
+export function validarSolicitud(d, hoy) {
+  const e = {};
+  if (corto(d.empresa, 3)) e.empresa = 'Ingresa el nombre de tu empresa (minimo 3 caracteres).';
+  if (corto(d.contacto, 3)) e.contacto = 'Ingresa el nombre de la persona de contacto.';
+  if (!correoValido(d.correo)) e.correo = 'Ingresa un correo electronico valido.';
+  if (!telefonoValido(d.telefono)) e.telefono = 'Ingresa un telefono valido (solo numeros, espacios y +).';
+  if (vacio(d.tipoContrato)) e.tipoContrato = 'Selecciona el tipo de contrato requerido.';
+  if (vacio(d.especialidad)) e.especialidad = 'Selecciona la especialidad que necesitas.';
+ 
+  const cantidad = Number(d.cantidad);
+  if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 50) e.cantidad = 'Ingresa un numero entero entre 1 y 50.';
+ 
+  if (vacio(d.fechaInicio)) e.fechaInicio = 'Selecciona la fecha de inicio.';
+  else if (hoy && d.fechaInicio < hoy) e.fechaInicio = 'La fecha de inicio no puede estar en el pasado.';
+ 
+  if (vacio(d.fechaTermino)) e.fechaTermino = 'Selecciona la fecha de termino.';
+  else if (!vacio(d.fechaInicio) && d.fechaTermino < d.fechaInicio) e.fechaTermino = 'La fecha de termino no puede ser anterior a la de inicio.';
+ 
+  if (String(d.comentarios ?? '').length > 500) e.comentarios = 'Maximo 500 caracteres.';
   return e;
 }

@@ -18,7 +18,7 @@ body {
   color: var(--sp-dark);
 }
  
-/* NAVBAR */ 
+/* NAVBAR */
 .navbar-staffpro {
   background-color: var(--sp-dark);
   font-size: 1.05rem;
@@ -93,7 +93,7 @@ body {
   display: block;
 }
  
-/* BENEFICIOS */ 
+/* BENEFICIOS */
 .beneficios-section {
   background-color: var(--sp-bg);
 }
@@ -142,7 +142,7 @@ body {
   background-color: var(--sp-dark);
 }
  
-/* PAGINAS INTERNAS Y FORMULARIOS */ 
+/* PAGINAS INTERNAS Y FORMULARIOS */
 .page-header {
   background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
   border-bottom: 4px solid var(--sp-accent);
@@ -190,14 +190,14 @@ body {
   border-top: 3px solid var(--sp-accent);
 }
  
-/* TABLAS */
+/* TABLAS */ 
 .table-header-staffpro th {
   background-color: var(--sp-dark);
   color: #fff;
   white-space: nowrap;
 }
  
-/* PANEL (dashboard) */ 
+/* PANEL (dashboard) */
 .panel-card {
   border: none;
   border-left: 5px solid var(--sp-accent);
@@ -212,7 +212,23 @@ body {
   color: inherit;
 }
  
-/* RESPONSIVO */
+/* BADGES DE ESTADO */
+.badge-disponible {
+  background-color: #1a7f4b;
+  color: #fff;
+}
+ 
+.badge-en-turno {
+  background-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.badge-estado {
+  background-color: var(--sp-dark);
+  color: #fff;
+}
+ 
+/* RESPONSIVO */ 
 @media (max-width: 576px) {
   .page-header h1 {
     font-size: 1.4rem;
@@ -226,6 +242,7 @@ body {
     font-size: 1rem;
   }
 }
+
 
 
 

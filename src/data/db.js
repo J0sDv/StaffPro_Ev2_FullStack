@@ -10,9 +10,26 @@ export const ROLES = {
   TRABAJADOR: 'Trabajador',
 };
  
+export const TIPOS_CONTRATO = [
+  { codigo: 'CT001', nombre: 'Eventual', descripcion: 'Contrato por obra o servicio especifico.', duracion: 'Hasta 3 meses', beneficios: 'Sin beneficios' },
+  { codigo: 'CT002', nombre: 'Plazo fijo', descripcion: 'Contrato por tiempo determinado.', duracion: '3 a 12 meses', beneficios: 'Seguro de salud' },
+  { codigo: 'CT003', nombre: 'Indefinido', descripcion: 'Contrato por tiempo indefinido.', duracion: 'Indefinido', beneficios: 'Seguro de salud + vacaciones pagadas' },
+  { codigo: 'CT004', nombre: 'Honorarios', descripcion: 'Contrato de prestacion de servicios.', duracion: 'Por proyecto', beneficios: 'Sin beneficios' },
+];
+ 
+export const ESTADOS_SOLICITUD = ['Solicitado', 'En seleccion', 'Asignado', 'En servicio', 'Finalizado'];
+ 
+export const DESCRIPCION_ESTADO = {
+  'Solicitado': 'Hemos recibido tu solicitud de personal y estamos buscando perfiles.',
+  'En seleccion': 'Estamos evaluando a los candidatos disponibles para tu solicitud.',
+  'Asignado': 'Hemos asignado personal a tu solicitud.',
+  'En servicio': 'Los trabajadores estan cumpliendo con el servicio en tu empresa.',
+  'Finalizado': 'El servicio ha finalizado correctamente.',
+};
+ 
 export const SEED = {
   usuarios: [
-    { id: 1, nombre: 'Valentina Morales', rut: '12.345.678-5', correo: 'admin.staffpro@gmail.com', telefono: '+56 9 1111 1111', password: 'admin123', rol: ROLES.ADMIN, empresa: '' },
+    { id: 1, nombre: 'Juan Carlos', rut: '12.345.678-5', correo: 'admin.staffpro@gmail.com', telefono: '+56 9 1111 1111', password: 'admin123', rol: ROLES.ADMIN, empresa: '' },
     { id: 2, nombre: 'Sofia Herrera', rut: '23.456.789-6', correo: 'rrhh.staffpro@gmail.com', telefono: '+56 9 2222 2222', password: 'rrhh1234', rol: ROLES.RRHH, empresa: '' },
     { id: 3, nombre: 'Matias Fuentes', rut: '18.765.432-7', correo: 'coord.staffpro@gmail.com', telefono: '+56 9 3333 3333', password: 'coord123', rol: ROLES.COORDINADOR, empresa: '' },
     { id: 4, nombre: 'Javiera Nuñez', rut: '15.234.567-4', correo: 'recluta.staffpro@gmail.com', telefono: '+56 9 4444 4444', password: 'recluta12', rol: ROLES.RECLUTADOR, empresa: '' },
@@ -46,7 +63,8 @@ export const SEED = {
   ],
 };
  
-// Base de datos simulada y CRUD 
+//Base de datos simulada y CRUD
+ 
 const copiaInicial = () => JSON.parse(JSON.stringify(SEED));
  
 let db = copiaInicial();
@@ -54,7 +72,7 @@ let db = copiaInicial();
 const siguienteId = (lista) => lista.reduce((max, item) => Math.max(max, item.id), 0) + 1;
  
 // CRUD generico 
- 
+
 // READ (todos)
 export function listar(coleccion) {
   return db[coleccion] ?? [];
@@ -96,3 +114,4 @@ export function eliminar(coleccion, id) {
 export function reiniciarDatos() {
   db = copiaInicial();
 }
+

@@ -22,6 +22,8 @@ export const BENEFICIOS = [
   { icono: 'bi-graph-up-arrow', titulo: 'Reportes Estrategicos', texto: 'Genera metricas automaticas de asistencia, desempeño y costos operativos para tomar decisiones informadas y optimizar el servicio.' },
 ];
  
+export const ESPECIALIDADES = ['Operador de grua', 'Bodeguero/a', 'Electricista', 'Ayudante de produccion', 'Conductor'];
+ 
 export const EQUIPO = [
   { valor: 5, titulo: 'Reclutadores', icono: 'bi-person-vcard' },
   { valor: 2, titulo: 'Coordinadores de personal', icono: 'bi-diagram-3' },
