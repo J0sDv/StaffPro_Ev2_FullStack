@@ -18,7 +18,7 @@ body {
   color: var(--sp-dark);
 }
  
-/* NAVBAR */
+/* NAVBAR */ 
 .navbar-staffpro {
   background-color: var(--sp-dark);
   font-size: 1.05rem;
@@ -50,7 +50,7 @@ body {
   opacity: 0.55;
 }
  
-/* HERO */ 
+/* HERO */
 .hero-section {
   background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
 }
@@ -132,21 +132,78 @@ body {
   opacity: 0.6;
 }
  
-/* CTA FINAL */
+/* CTA FINAL */ 
 .cta-final {
   background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
 }
  
-/* FOOTER */ 
+/* FOOTER */
 .footer-staffpro {
   background-color: var(--sp-dark);
 }
  
-/* RESPONSIVO */
+/* PAGINAS INTERNAS Y FORMULARIOS */ 
+.page-header {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+  border-bottom: 4px solid var(--sp-accent);
+}
+ 
+.form-card {
+  border-radius: 0.75rem;
+}
+ 
+.form-card legend {
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+ 
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--sp-accent);
+  box-shadow: 0 0 0 0.2rem rgba(255, 138, 30, 0.25);
+}
+ 
+.invalid-feedback {
+  color: var(--sp-error);
+  font-weight: 500;
+}
+ 
+/* ACCESO (login / registro) */
+.pagina-sesion {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+  min-height: 100vh;
+}
+ 
+.logo-sesion {
+  font-size: 2.5rem;
+  color: #fff;
+}
+ 
+/* PESTANAS */
+.nav-tabs .nav-link {
+  color: var(--sp-dark);
+}
+ 
+.nav-tabs .nav-link.active {
+  color: var(--sp-accent-dark);
+  font-weight: 600;
+  border-top: 3px solid var(--sp-accent);
+}
+ 
+/* RESPONSIVO */ 
 @media (max-width: 576px) {
+  .page-header h1 {
+    font-size: 1.4rem;
+  }
+ 
+  .page-header p {
+    font-size: 0.9rem;
+  }
+ 
   .btn-lg {
     font-size: 1rem;
   }
 }
+
 
 

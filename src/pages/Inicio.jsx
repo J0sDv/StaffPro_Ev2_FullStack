@@ -1,11 +1,13 @@
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import StatCard from '../components/StatCard';
 import BeneficioCard from '../components/BeneficioCard';
 import { ESTADISTICAS_HOME, PASOS, BENEFICIOS, EQUIPO, TESTIMONIOS } from '../data/contenido';
  
-// Migracion del index.html: portada, estadisticas, equipo, pasos, beneficios y llamado a la accion.
 export default function Inicio() {
+  const { usuario } = useAuth();
+ 
   return (
     <>
       {/* HERO */}
@@ -19,7 +21,11 @@ export default function Inicio() {
               </p>
               <div className="d-flex flex-wrap gap-3">
                 <Button as={Link} to="/solicitud" variant="accent" size="lg">Solicitar Personal</Button>
-                <Button as={Link} to="/acceso" variant="outline-light" size="lg">Iniciar Sesion</Button>
+                {usuario ? (
+                  <Button as={Link} to="/panel" variant="outline-light" size="lg">Ir a mi panel</Button>
+                ) : (
+                  <Button as={Link} to="/acceso" variant="outline-light" size="lg">Iniciar Sesion</Button>
+                )}
               </div>
             </Col>
             <Col lg={6}>
@@ -71,7 +77,7 @@ export default function Inicio() {
         </Row>
       </Container>
  
-      {/* NOSOTROS */}
+      {/* NOSOTROS: equipo interno */}
       <Container as="section" className="my-5">
         <h2 className="text-center mb-4 fw-bold">Nuestro equipo interno</h2>
         <Row className="g-4 text-center">
@@ -146,4 +152,5 @@ export default function Inicio() {
     </>
   );
 }
+
 
