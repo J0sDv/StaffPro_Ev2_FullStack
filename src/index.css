@@ -1,0 +1,282 @@
+:root {
+  --sp-dark: #1e2a3a;
+  --sp-dark-2: #16202c;
+  --sp-accent: #ff8a1e;
+  --sp-accent-dark: #e07000;
+  --sp-bg: #f5f7fa;
+  --sp-text-muted: #4a5a6e;
+  --sp-error: #d92d20;
+}
+ 
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  background-color: var(--sp-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--sp-dark);
+}
+ 
+/* NAVBAR */ 
+.navbar-staffpro {
+  background-color: var(--sp-dark);
+  font-size: 1.05rem;
+}
+ 
+.text-accent {
+  color: var(--sp-accent);
+}
+ 
+.btn-accent {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+  font-weight: 600;
+}
+ 
+.btn-accent:hover,
+.btn-accent:focus,
+.btn-accent:active {
+  background-color: var(--sp-accent-dark) !important;
+  border-color: var(--sp-accent-dark) !important;
+  color: #fff !important;
+}
+ 
+.btn-accent:disabled {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+  opacity: 0.55;
+}
+ 
+/* HERO */
+.hero-section {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+}
+ 
+.hero-img {
+  border: 4px solid rgba(255, 255, 255, 0.15);
+  width: 90%;
+  max-height: 350px;
+  object-fit: cover;
+}
+ 
+/* ESTADISTICAS */
+.stat-card {
+  background-color: #ebebee;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+ 
+.panel-icono {
+  font-size: 1.8rem;
+  color: var(--sp-accent);
+}
+ 
+/* PASOS */ 
+.paso-numero {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--sp-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+ 
+.paso-icono {
+  font-size: 2.2rem;
+  color: var(--sp-accent);
+  display: block;
+}
+ 
+/* BENEFICIOS */ 
+.beneficios-section {
+  background-color: var(--sp-bg);
+}
+ 
+.benefit-card {
+  border: none;
+  border-top: 5px solid var(--sp-accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.12) !important;
+}
+ 
+.benefit-icono {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(255, 138, 30, 0.12);
+  color: var(--sp-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+ 
+/* TESTIMONIOS */
+.testimonio-card {
+  border-top: 3px solid var(--sp-accent);
+}
+ 
+.testimonio-icono {
+  font-size: 1.8rem;
+  color: var(--sp-accent);
+  opacity: 0.6;
+}
+ 
+/* CTA FINAL */
+.cta-final {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+}
+ 
+/* FOOTER */
+.footer-staffpro {
+  background-color: var(--sp-dark);
+}
+ 
+/* PAGINAS INTERNAS Y FORMULARIOS */
+.page-header {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+  border-bottom: 4px solid var(--sp-accent);
+}
+ 
+.form-card {
+  border-radius: 0.75rem;
+}
+ 
+.form-card legend {
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+ 
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--sp-accent);
+  box-shadow: 0 0 0 0.2rem rgba(255, 138, 30, 0.25);
+}
+ 
+.invalid-feedback {
+  color: var(--sp-error);
+  font-weight: 500;
+}
+ 
+/* ACCESO (login / registro) */ 
+.pagina-sesion {
+  background: linear-gradient(135deg, var(--sp-dark) 0%, var(--sp-dark-2) 100%);
+  min-height: 100vh;
+}
+ 
+.logo-sesion {
+  font-size: 2.5rem;
+  color: #fff;
+}
+ 
+/* PESTANAS */
+.nav-tabs .nav-link {
+  color: var(--sp-dark);
+}
+ 
+.nav-tabs .nav-link.active {
+  color: var(--sp-accent-dark);
+  font-weight: 600;
+  border-top: 3px solid var(--sp-accent);
+}
+ 
+/* TABLAS */ 
+.table-header-staffpro th {
+  background-color: var(--sp-dark);
+  color: #fff;
+  white-space: nowrap;
+}
+ 
+/* PANEL (dashboard) */
+.panel-card {
+  border: none;
+  border-left: 5px solid var(--sp-accent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+}
+ 
+.panel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.12) !important;
+  color: inherit;
+}
+ 
+/* BADGES DE ESTADO */
+.badge-disponible {
+  background-color: #1a7f4b;
+  color: #fff;
+}
+ 
+.badge-en-turno {
+  background-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.badge-estado {
+  background-color: var(--sp-dark);
+  color: #fff;
+}
+ 
+/* BOTONES Y MARCAJES (asistencia movil) */
+.btn-outline-accent {
+  border: 1px solid var(--sp-accent);
+  color: var(--sp-accent);
+  font-weight: 600;
+}
+ 
+.btn-outline-accent:hover {
+  background-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.btn-check:checked + .btn-outline-accent {
+  background-color: var(--sp-accent);
+  border-color: var(--sp-accent);
+  color: #fff;
+}
+ 
+.marcaje-item {
+  background-color: #fff;
+  border-left: 4px solid var(--sp-accent);
+  border-radius: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  font-size: 0.9rem;
+}
+ 
+.marcaje-item.salida {
+  border-left-color: var(--sp-dark);
+}
+ 
+/* RESPONSIVO */ 
+@media (max-width: 576px) {
+  .page-header h1 {
+    font-size: 1.4rem;
+  }
+ 
+  .page-header p {
+    font-size: 0.9rem;
+  }
+ 
+  .btn-lg {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
+
