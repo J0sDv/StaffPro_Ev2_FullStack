@@ -1,16 +1,58 @@
-# React + Vite
+# StaffPro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plataforma web de gestion de personal externo.
+Proyecto de la asignatura DSY1104_002D - Evaluacion Parcial 2.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 + Vite
+- React Bootstrap + Bootstrap + Bootstrap Icons
+- React Router
+- Vitest + Testing Library (pruebas unitarias)
 
-## React Compiler
+## Como ejecutar el proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Luego abre http://localhost:5173 en el navegador.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Pruebas unitarias
+
+```bash
+npm run test:run   # ejecuta las 10 pruebas una vez
+npm test           # modo observacion
+npm run coverage   # reporte de cobertura
+```
+
+## Vistas por rol
+
+| Rol | Vistas |
+| --- | --- |
+| Cliente | Solicitud de personal |
+| Reclutador | Trabajadores |
+| Coordinador | Gestion de personal |
+| Trabajador | Marcar asistencia |
+| Jefe de RR.HH. | Panel con reporte de horas y costos |
+| Administrador | Usuarios y Trabajadores |
+
+Todos los roles con sesion tienen ademas Inicio y Panel.
+
+## Usuarios de prueba
+
+El inicio de sesion pide correo, RUT y contraseña. El RUT funciona con o sin puntos y guion.
+
+| Rol | Correo | RUT | Contraseña |
+| --- | --- | --- | --- |
+| Administrador | admin.staffpro@gmail.com | 12.345.678-5 | admin123 |
+| Jefe de RR.HH. | rrhh.staffpro@gmail.com | 23.456.789-6 | rrhh1234 |
+| Coordinador | coord.staffpro@gmail.com | 18.765.432-7 | coord123 |
+| Reclutador | recluta.staffpro@gmail.com | 15.234.567-4 | recluta12 |
+| Cliente | camila.reyes@gmail.com | 17.654.321-3 | cliente12 |
+| Trabajador | juan.perez@gmail.com | 11.111.111-1 | trabajo12 |
+
+## Nota sobre los datos
+
+Los datos son simulados y viven en memoria (src/data/db.js). Los cambios duran mientras la app este abierta; al recargar la pagina vuelven los datos de ejemplo.
